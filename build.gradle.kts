@@ -26,4 +26,10 @@ kotlin {
             jvmTarget = JvmTarget.JVM_11
         }
     }
+
+    sourceSets {
+        commonMain.dependencies {
+            implementation(kotlinx.coroutines)
+        }
+    }
 }

@@ -19,6 +19,7 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("kt").from(files("version-catalogs/kotlin.versions.toml"))
+        create("kotlinx").from(files("version-catalogs/kotlinx.versions.toml"))
     }
 }
 
