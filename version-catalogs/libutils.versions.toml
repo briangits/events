@@ -1,0 +1,5 @@
+[versions]
+vanniktech = "0.37.0"
+
+[plugins]
+vanniktech = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
