@@ -1,16 +1,17 @@
-name: Test
+name: CI
 
 on:
-  workflow_run:
-    workflows: ["Build"]
-    types: [completed]
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  test:
-    if: ${{ github.workflow_event.conclusion == "success" }}
+  ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,4 +24,8 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v6
 
-      - run: ./gradlew allTests
+      - name: Build
+        run: ./gradlew assemble
+
+      - name: Test
+        run: ./gradlew allTests
