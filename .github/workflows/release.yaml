@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  publish:
+  release:
     runs-on: macos-latest
 
     steps:
