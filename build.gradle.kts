@@ -17,7 +17,7 @@ kotlin {
     jvm()
 
     android {
-        namespace = group.toString()
+        namespace = "$group.events"
         compileSdk = 37
         minSdk = 21
 
