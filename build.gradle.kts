@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -15,20 +16,37 @@ version = "0.0.1"
 kotlin {
     jvm()
 
-    js {
-        browser()
-        nodejs()
-    }
-
     android {
-        namespace = "$group"
+        namespace = group.toString()
         compileSdk = 37
-        minSdk = 2
+        minSdk = 21
 
         compilerOptions {
             jvmTarget = JvmTarget.JVM_11
         }
     }
+
+    js {
+        browser()
+        nodejs()
+    }
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+        nodejs()
+    }
+
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+
+    macosArm64()
+
+    linuxX64()
+    linuxArm64()
+
+    mingwX64()
 
     sourceSets {
         commonMain.dependencies {
@@ -78,4 +96,3 @@ mavenPublishing {
         }
     }
 }
-
