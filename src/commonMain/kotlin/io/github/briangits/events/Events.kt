@@ -1,6 +1,7 @@
 package io.github.briangits.events
 
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -18,7 +19,7 @@ class Events {
     ): Job {
         val subscriptionScope = scope ?: CoroutineScope(currentCoroutineContext())
 
-        return subscriptionScope.launch {
+        return subscriptionScope.launch(start = CoroutineStart.UNDISPATCHED) {
             @Suppress("UNCHECKED_CAST")
             events.filter { it.type == type }.collect { handler(it.payload as T) }
         }
