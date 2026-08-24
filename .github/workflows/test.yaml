@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   test:
+    if: ${{ github.workflow_event.conclusion == "success" }}
     runs-on: ubuntu-latest
 
     steps:
