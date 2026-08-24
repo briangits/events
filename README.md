@@ -2,6 +2,31 @@
 
 A lightweight, coroutine-native in-process event bus for Kotlin Multiplatform.
 
+## Quick Start
+
+Add the dependency to your project:
+
+```kotlin
+dependencies {
+    implementation("io.github.briangits:events:<version>")
+}
+```
+
+Then create an event bus, publish events, and subscribe to them:
+
+```kotlin
+val bus = Events()
+
+val subscription = bus.subscribe<UserLoggedIn> { event ->
+println("User logged in: ${event.username}")
+}
+
+bus.publish(UserLoggedIn("Alice"))
+
+subscription.cancel()
+```
+
+
 ## Usage
 
 ### Define an Event
