@@ -31,5 +31,10 @@ kotlin {
         commonMain.dependencies {
             implementation(kotlinx.coroutines)
         }
+
+        commonTest.dependencies {
+            implementation(kt.test)
+            implementation(kotlinx.coroutines.test)
+        }
     }
 }
