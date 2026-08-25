@@ -7,7 +7,7 @@ plugins {
     alias(kt.plugins.multiplatform.android)
 
     // Publishing
-    alias(libutils.plugins.vanniktech)
+    alias(libutils.plugins.mavenPublish)
 }
 
 group = "io.github.briangits"
