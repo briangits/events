@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.briangits.events"
-version = "0.0.3"
+version = "0.1.0"
 
 kotlin {
     jvm()
