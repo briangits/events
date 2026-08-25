@@ -10,14 +10,14 @@ plugins {
     alias(libutils.plugins.mavenPublish)
 }
 
-group = "io.github.briangits"
+group = "io.github.briangits.events"
 version = "0.0.2"
 
 kotlin {
     jvm()
 
     android {
-        namespace = "$group.events"
+        namespace = group.toString()
         compileSdk = 37
         minSdk = 21
 
