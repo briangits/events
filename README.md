@@ -8,7 +8,7 @@ Add the dependency to your project:
 
 ```kotlin
 dependencies {
-    implementation("io.github.briangits:events:<version>")
+    implementation("io.github.briangits.events:events:<version>")
 }
 ```
 
@@ -18,10 +18,10 @@ Then create an event bus, publish events, and subscribe to them:
 val bus = Events()
 
 val subscription = bus.subscribe<UserLoggedIn> { event ->
-println("User logged in: ${event.username}")
+    println("User logged in: ${event.username}")
 }
 
-bus.publish(UserLoggedIn("Alice"))
+bus.publish { UserLoggedIn("janedoe") }
 
 subscription.cancel()
 ```
@@ -44,7 +44,7 @@ val subscription = bus.subscribe<UserLoggedIn> { event ->
 }
 ```
 
-A subscription returns a `Job` that can be cancelled when no longer needed.
+A `subscribe()` returns a `Job` that can be canceled when no longer needed.
 
 ```kotlin
 subscription.cancel()
@@ -54,7 +54,7 @@ subscription.cancel()
 ### Publish an Event
 
 ```kotlin
-bus.publish(UserLoggedIn("Alice"))
+bus.publish { UserLoggedIn("janedoe") }
 ```
 
 ### Structured Concurrency
